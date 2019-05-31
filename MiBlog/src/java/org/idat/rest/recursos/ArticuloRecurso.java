@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import org.idat.rest.modelo.Articulo;
+import org.idat.rest.modelo.Navegacion;
 import org.idat.rest.servicio.ArticuloServicio;
 
 /**
@@ -67,17 +68,43 @@ public class ArticuloRecurso {
 //    }   
 //        
 //        
+   
         
         
         
-        
-    @GET
+          @GET
     @Path("/{articuloId}")
-    public Articulo getArticulo(@PathParam("articuloId") int id){
-        return servicio.getArticulo(id);
+    public Articulo getArticulo(@PathParam("articuloId") int id,
+                                @Context UriInfo uriInfo){
+        
+        Articulo respuesta = servicio.getArticulo(id);
+        
+        
+        String linkSelf = uriInfo.getAbsolutePath().toString();
+        
+        String linkComm = linkSelf + "/comentarios";
+        
+        Navegacion self = new Navegacion("Recurso",linkSelf,"Locación del Recurso");
+        
+        Navegacion comm = new Navegacion("Comentarios", linkComm, "Locación de los Comentarios");
+        
+        respuesta.getNavegacion().add(self);
+        respuesta.getNavegacion().add(comm);
+        
+        return respuesta;
     }
     
-    
+        
+        
+        
+        
+        
+//    @GET
+//    @Path("/{articuloId}")
+//    public Articulo getArticulo(@PathParam("articuloId") int id){
+//        return servicio.getArticulo(id);
+//    }
+//    
     
 //    @POST
 //    public Articulo addArticulo(Articulo articulo){

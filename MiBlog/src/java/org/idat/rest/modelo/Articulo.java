@@ -17,6 +17,15 @@ public class Articulo {
     private String autor;
 
     private List<Comentario> comentarios = new ArrayList<>();
+    private List<Navegacion> navegacion  = new ArrayList<>();
+
+    public List<Navegacion> getNavegacion() {
+        return navegacion;
+    }
+
+    public void setNavegacion(List<Navegacion> navegacion) {
+        this.navegacion = navegacion;
+    }
     
     
     public Articulo() {

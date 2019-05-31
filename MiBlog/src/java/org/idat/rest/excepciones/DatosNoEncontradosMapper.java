@@ -15,12 +15,15 @@ import org.idat.rest.modelo.MensajeError;
  * @author Administrador
  */
 @Provider
-public class DatosNoEncontradosMapper implements ExceptionMapper<DatosNoEncontradosException>{
+public class DatosNoEncontradosMapper  implements ExceptionMapper<DatosNoEncontradosExcepcion>{
 
     @Override
-    public Response toResponse(DatosNoEncontradosException exception) {
-        MensajeError mensaje = new MensajeError("Datos no Encontrados" , 404,"Esta informacion no se encuentra");
-        return Response.status(Response.Status.NOT_FOUND).entity(mensaje).build();
+    public Response toResponse(DatosNoEncontradosExcepcion exception) {
+        MensajeError mensaje = 
+                new MensajeError("Datos no encontrados",404,"Esta información no se encuentra");
+        
+        return Response.status(Response.Status.NOT_FOUND)
+                        .entity(mensaje).build();
     }
     
 }

@@ -9,9 +9,10 @@ package org.idat.rest.excepciones;
  *
  * @author Administrador
  */
-public class DatosNoEncontradosException extends RuntimeException{
+public class DatosNoEncontradosExcepcion  extends RuntimeException {
     
-    public DatosNoEncontradosException(String mensaje){
+    public DatosNoEncontradosExcepcion(String mensaje){
         super(mensaje);
     }
+    
 }

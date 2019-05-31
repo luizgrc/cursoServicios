@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import org.idat.rest.dao.BaseDeDatos;
-import org.idat.rest.excepciones.DatosNoEncontradosException;
+import org.idat.rest.excepciones.DatosNoEncontradosExcepcion;
 import org.idat.rest.modelo.Articulo;
 
 /**
@@ -31,12 +31,15 @@ public class ArticuloServicio {
 
         for (Articulo articulo : listado) {
             if (articulo.getId() == id) {
-                respuesta = articulo;
+              respuesta = articulo;
             }
         }
-        if(respuesta == null){
-            throw new DatosNoEncontradosException("No se encuentra el articulo");
+        if (respuesta == null){
+        
+            throw new DatosNoEncontradosExcepcion("No se encuentra el artículo");
+        
         }
+        
         
         return respuesta;
     }

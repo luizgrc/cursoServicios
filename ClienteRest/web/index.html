@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css"/>
+    </head>
+    <body>
+        <div class ="container">
+            <div class="item">
+                <h1> Articulos  </h1>
+                
+            </div>
+            <div class="item web-25" >     
+                <input class="texto-derecha" type="search"
+                       id="articuloId" name="articuloId" 
+                       placeholder="Id Articulo" />
+                          
+            </div>    
+            <div class="item web-25" >
+                <button id="btnGetArticle"  > Buscar </button>
+                
+            </div>
+            <div class="item" >
+                <div id="vista" ></div>
+                                
+            </div>
+             
+            <div class="item"   >
+                <h2> Crear Articulo </h2>
+                <form id="frmCrear" method="post" action="#"   >
+                    <label for="cliente_articulo"> Cliente </label>
+                    <input type="text" id="cliente_articulo" name="cliente_articulo"/> 
+                    <label for="titulo_articulo"> Título </label>
+                    <input type="text" id="titulo_articulo" name="titulo_articulo"/> 
+                    
+                    <label for="contenido_articulo">Contenido</label>
+                     <textarea id="contenido_articulo" name="contenido_articulo"></textarea> 
+                    
+                     <button id="btnAddArticle" >Crear</button>
+                  
+                </form>
+                
+            </div>
+           
+        </div>
+        
+        
+        <template  id ="template" >
+            <div  class="articulo"  >
+                <label>Id </label>
+                <input class="articuloId" type="number"  readonly  />
+                <h3 class="titulo" ></h3>
+                <p class="contenido" ></p>
+                <label> Autor </label>
+                <input class="autor" type="text" readonly />
+                <label>Creado</label>
+                <input class="creado" type="text" readonly/>
+                
+                
+            </div>
+            
+        
+        </template>
+        
+        <script src="js/codigo.js" ></script>
+        
+        
+        
+        
+    </body>
+</html>
